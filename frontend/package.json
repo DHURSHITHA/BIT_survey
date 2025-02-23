@@ -14,7 +14,12 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.5",
     "@mui/material": "^6.4.5",
+<<<<<<< HEAD
     "@mui/styled-engine-sc": "^6.4.3",
+=======
+    "@shadcn/ui": "^0.0.4",
+    "lucide-react": "^0.475.0",
+>>>>>>> de12f56166c2b8451323c17b293f992dea38601e
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
