@@ -62,7 +62,7 @@ const DashboardLayout = () => {
                   borderRadius: "10px",
                 }}
               >
-                <ListItemIcon sx={{ color: "black" }}> {item.icon} </ListItemIcon>
+                <ListItemIcon sx={{ color: "black" }}>{item.icon}</ListItemIcon>
                 <ListItemText primary={item.text} sx={{ color: "black" }} />
               </ListItemButton>
             </ListItem>
@@ -128,31 +128,32 @@ const DashboardLayout = () => {
           </Box>
 
           {/* Right Side: Notifications & Settings Icons */}
-          <Box sx={{ display: "flex", alignItems: "center",  gap: { xs: 0.8, sm: 2 } }}>
-          <IconButton sx={{ backgroundColor: "#F5F6FA", p: 1 }}>
-              <SettingsIcon sx={{ color: "#7A7A7A" , fontSize: { xs: "10px", sm: "24px" }}} />
+          <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 0.8, sm: 2 } }}>
+            <IconButton sx={{ backgroundColor: "#F5F6FA", p: 1 }}>
+              <SettingsIcon sx={{ color: "#7A7A7A", fontSize: { xs: "10px", sm: "24px" } }} />
             </IconButton>
 
             <IconButton sx={{ backgroundColor: "#F5F6FA", p: 1 }}>
-              <NotificationsIcon sx={{ color: "#7A7A7A" , fontSize: { xs: "10px", sm: "24px" }}} />
+              <NotificationsIcon sx={{ color: "#7A7A7A", fontSize: { xs: "10px", sm: "24px" } }} />
             </IconButton>
 
-            
             <Avatar src="/assets/prof.png" sx={{ width: { xs: 30, sm: 40 }, height: { xs: 30, sm: 40 } }} />
-
           </Box>
         </Toolbar>
       </AppBar>
 
+      {/* Drawer Component */}
       <Drawer
-        variant="permanent"
+        variant={isMobile ? "temporary" : "permanent"} // Use temporary variant on mobile
+        open={isMobile ? mobileOpen : true} // Use mobileOpen state for mobile view
+        onClose={handleDrawerToggle} // Handle closing the drawer on mobile
         sx={{
           width: desktopDrawerWidth,
           flexShrink: 0,
           display: { xs: "none", sm: "block" },
           "& .MuiDrawer-paper": { width: desktopDrawerWidth, boxSizing: "border-box" },
+          ...(isMobile && { display: "block" }), // Ensure drawer is displayed on mobile
         }}
-        open
       >
         {drawer}
       </Drawer>
